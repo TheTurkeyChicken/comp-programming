@@ -3,8 +3,8 @@
 #include <algorithm>
 using namespace std;
 
-int n, m, longest[100000];
-vector<int> adj[100000];
+int n, m, longest[100001];
+vector<int> adj[100001];
 
 void addEdge(int u, int v) {
 	adj[u].push_back(v);
@@ -20,20 +20,20 @@ void dfs(int u) {
 }
 
 int main() {
-	int x, y;
+	int x, y, ans = 0;
 	cin >> n >> m;
-	for(int i = 0; i < n; i++) longest[i] = -1;
+	for(int i = 0; i <= n; i++) longest[i] = -1;
 	for(int i = 0; i < m; i++) {
 		cin >> x >> y;
 		addEdge(x, y);
 	}
-//	dfs(3);
-	for(int i = 0; i < n; i++) {
+	for(int i = 1; i <= n; i++) {
 		dfs(i);
 	}
-	cout << endl;
-//	sort(longest, longest + n);
-//	cout << longest[n - 1];
-	cout << endl;
-	for(int i = 0; i < n; i++) cout << longest[i] << '\n';
+	for(int i = 1; i <= n; i++) {
+		ans = max(ans, longest[i]);
+	}
+	cout << ans;
+//	cout << endl;
+//	for(int i = 1; i <= n; i++) cout << i << ": " << longest[i] << '\n';
 }
