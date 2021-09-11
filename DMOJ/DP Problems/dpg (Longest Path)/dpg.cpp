@@ -37,3 +37,4 @@ int main() {
 //	cout << endl;
 //	for(int i = 1; i <= n; i++) cout << i << ": " << longest[i] << '\n';
 }
+// The reason why the code does not run on N^2 (or MN) time is because for every iteration fo the loop on line 30, the dfs would not run if a node already has its current max length computed
